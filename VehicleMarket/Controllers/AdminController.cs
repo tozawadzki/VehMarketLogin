@@ -39,6 +39,10 @@ namespace VehicleMarket.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+            if (Session ["admin_id"] == null)
+            {
+                return RedirectToAction("Login");
+            }
             return View();
         }
     }
